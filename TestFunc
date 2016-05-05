@@ -1,0 +1,31 @@
+using System;
+using System.Linq;
+
+namespace _08.ExcellentStudents
+{
+    using System.Collections.Generic;
+    using _01.StudentClass;
+
+    class Program
+    {
+        static void Main()
+        {
+            List<Student> students = new List<Student>();
+            students.Add(new Student("Ivan", "Georgiev", 22, 4241241, "+359 2 8882737", "ivan@skandala.com", new List<int> { 2, 3, 4, 6, 4 }, 1));
+            students.Add(new Student("Georgi", "Kitic", 12, 332241241, "081616712", "georgi@kitic.com", new List<int> { 2, 3, 4, 4, 4 }, 2));
+            students.Add(new Student("Petur", "Mudev", 25, 1212241, "024124712", "ivan@mudev.com", new List<int> { 2, 3, 4, 4, 4 }, 2));
+            students.Add(new Student("Sinan", "Sakic", 21, 128241, "081414712", "sinan@abv.bg", new List<int> { 6, 6, 6 }, 3));
+
+            foreach (var student in students.Where(s => s.Marks.Contains(6)))
+            {
+                Console.WriteLine(student.Firstname + " " +
+                    student.Lastname + " " + string.Join(" ", student.Marks));
+            }
+
+            foreach (var student in students.Select(s=>s.Marks.Contains (2)))
+            {
+                
+            }
+        }
+    }
+}
